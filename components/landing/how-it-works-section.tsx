@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Connect your tools",
-    description: "Integrate with your existing stack in minutes. We support 200+ data sources out of the box.",
+    title: "Upload your photo",
+    description: "Take a clear front-facing photo and upload it to Paxxora. No filters, no angles. Just your face.",
     code: `import { optimus } from '@optimus/core'
 
 optimus.connect({
@@ -16,8 +16,8 @@ optimus.connect({
   },
   {
     number: "II",
-    title: "Build your workflow",
-    description: "Design powerful automations with our visual builder or write code directly.",
+    title: "Place your landmarks",
+    description: "Manually place 52 precise landmarks points across your face. This ensures maximum accuracy",
     code: `optimus.workflow('process', {
   trigger: 'event',
   actions: [
@@ -29,8 +29,8 @@ optimus.connect({
   },
   {
     number: "III",
-    title: "Ship to production",
-    description: "Deploy globally with zero configuration. Your app goes live in under 30 seconds.",
+    title: "Get your results",
+    description: "Recieve your full breakdown of 32 facial metrics, your overall score, and an AI vision assessment",
     code: `optimus.deploy({
   target: 'production',
   regions: 'auto'
@@ -97,7 +97,7 @@ export function HowItWorksSection() {
           >
             Three steps.
             <br />
-            <span className="text-background/50">Infinite possibilities.</span>
+            <span className="text-background/50">Total Precision.</span>
           </h2>
         </div>
 
