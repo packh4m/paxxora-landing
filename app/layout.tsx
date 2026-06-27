@@ -20,12 +20,12 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains'
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Paxxora - Facial Analysis",
   description: "33 facial measurements. Instant results. Brutal honesty.",
   icons: {
     icon: "/favicon.ico",
-  }
+  },
 }
 
 export default function RootLayout({
