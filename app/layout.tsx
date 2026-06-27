@@ -24,7 +24,7 @@ export const metadata = {
   title: "Paxxora - Facial Analysis",
   description: "33 facial measurements. Instant results. Brutal honesty.",
   icons: {
-    icon: "/paxxora.png",
+    icon: "/paxxora_favicon.png",
   }
 }
 }
