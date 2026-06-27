@@ -3,12 +3,12 @@
 import { useEffect, useState, useRef } from "react";
 
 const locations = [
-  { city: "San Francisco", region: "US West", latency: "12ms" },
-  { city: "New York", region: "US East", latency: "18ms" },
-  { city: "London", region: "Europe", latency: "24ms" },
-  { city: "Tokyo", region: "Asia Pacific", latency: "32ms" },
-  { city: "Sydney", region: "Oceania", latency: "45ms" },
-  { city: "Sao Paulo", region: "South America", latency: "38ms" },
+  { city: "Global Leaderboard" },
+  { city: "United States" },
+  { city: "United Kingdom" },
+  { city: "Canada" },
+  { city: "Australia" },
+  { city: "Germany" },
 ];
 
 export function InfrastructureSection() {
@@ -52,7 +52,7 @@ export function InfrastructureSection() {
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
               See where you
               <br />
-              Stand.
+              stand.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
               Comapre your score against thousands of users worldwide. Opt in to join the global leaderboard or keep your results private. Your choice, always.
@@ -61,16 +61,16 @@ export function InfrastructureSection() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">17</div>
-                <div className="text-sm text-muted-foreground">Data centers</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2"></div>
+                <div className="text-sm text-muted-foreground">Worldwide ranking</div>
               </div>
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">99.99%</div>
-                <div className="text-sm text-muted-foreground">Uptime SLA</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2"></div>
+                <div className="text-sm text-muted-foreground">Country leaderboard</div>
               </div>
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">&lt;50ms</div>
-                <div className="text-sm text-muted-foreground">Global latency</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2">&lt;</div>
+                <div className="text-sm text-muted-foreground">Your data, your choice</div>
               </div>
             </div>
           </div>
