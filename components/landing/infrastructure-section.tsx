@@ -50,9 +50,9 @@ export function InfrastructureSection() {
               Leaderboard
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Global by
+              See where you
               <br />
-              default.
+              Stand.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
               Comapre your score against thousands of users worldwide. Opt in to join the global leaderboard or keep your results private. Your choice, always.
