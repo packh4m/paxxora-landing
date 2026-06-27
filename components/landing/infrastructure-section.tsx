@@ -69,7 +69,7 @@ export function InfrastructureSection() {
                 <div className="text-sm text-muted-foreground">Country leaderboard</div>
               </div>
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">&lt;</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2">Private</div>
                 <div className="text-sm text-muted-foreground">Your data, your choice</div>
               </div>
             </div>
