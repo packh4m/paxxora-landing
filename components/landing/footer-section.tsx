@@ -58,7 +58,6 @@ export function FooterSection() {
                 ))}
               </div>
             </div>
-
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
                 <h3 className="text-sm font-medium mb-6">{title}</h3>
@@ -78,7 +77,6 @@ export function FooterSection() {
             ))}
           </div>
         </div>
-
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © 2026 Paxxora. All rights reserved.
