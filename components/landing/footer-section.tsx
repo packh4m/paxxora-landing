@@ -7,10 +7,10 @@ export function FooterSection() {
         <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-lg font-display">Paxxora</span>
-            <span className="text-xs text-muted-foreground font-mono">TM</span>
+            <span className="text-xs text-muted-foreground font-mono"></span>
           </div>
           <div className="flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Join Us</a>
+            <a href="#" className="hover:text-foreground transition-colors">FAQ</a>
             <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
             <a href="#" className="hover:text-foreground transition-colors">Terms</a>
           </div>
