@@ -46,28 +46,28 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 2847392, 
+    value: 32, 
     suffix: "", 
     prefix: "",
-    label: "API requests today",
+    label: "Metrics tracked per scan",
   },
   { 
-    value: 99, 
+    value: 52, 
     suffix: ".99%", 
     prefix: "",
-    label: "Uptime this quarter",
+    label: "Landmark points measured",
   },
   { 
-    value: 23, 
+    value: Global, 
     suffix: "ms", 
     prefix: "",
-    label: "Average response time",
+    label: "Leaderboard ranking",
   },
   { 
-    value: 184, 
+    value: Real-time, 
     suffix: "", 
     prefix: "",
-    label: "Countries served",
+    label: "Score updates",
   },
 ];
 
@@ -102,16 +102,16 @@ export function MetricsSection() {
           <div>
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Live metrics
+              Progress 
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Performance you
+              Your score can change.
               <br />
-              can measure.
+              So can your rank.
             </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
