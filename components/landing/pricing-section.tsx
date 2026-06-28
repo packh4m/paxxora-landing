@@ -11,13 +11,11 @@ const plans = [
     features: [
       "One scan",
       "3 facial metrics revealed",
-      "No overall score",
-      "No AI vision score",
     ],
     locked: [
-      "Full 33 metric breakdown",
       "Overall harmony score",
       "AI vision score",
+      "Full 33 metric breakdown",
       "Progress tracking",
       "Leaderboard access",
     ],
@@ -36,7 +34,6 @@ const plans = [
       "Angularity & dimorphism scores",
       "Progress tracking over time",
       "Global & country leaderboard",
-      "Men & women leaderboards",
     ],
     locked: [],
     cta: "Get Premium",
