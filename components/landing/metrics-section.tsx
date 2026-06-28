@@ -59,13 +59,13 @@ const metrics = [
   },
   { 
     value: "Global", 
-    suffix: "", 
+    suffix: "Global", 
     prefix: "",
     label: "Leaderboard ranking",
   },
   { 
     value: "Real-time", 
-    suffix: "", 
+    suffix: "Real-time", 
     prefix: "",
     label: "Score updates",
   },
