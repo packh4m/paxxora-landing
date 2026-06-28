@@ -4,32 +4,28 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "Optimus transformed our deployment pipeline. What used to take hours now happens in seconds.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "Meridian Labs",
-    metric: "10x faster deployments",
+    quote: "I finally understand why certain features of my face work and others don't. The breakdown is incredibly detailed.",
+    author: "Jake M",
+    role: "Fitness Model",
+    location: "Sydney",
   },
   {
-    quote: "The developer experience is unmatched. Our team's productivity has never been higher.",
-    author: "Marcus Webb",
-    role: "Engineering Lead",
-    company: "Flux Systems",
-    metric: "40% more features shipped",
+    quote: "Been working on my appearance for years but never had real data to back it up. Paxxora changed that completely.",
+    author: "Ryan T",
+    role: "Content Creator",
+    location: "London",
   },
   {
-    quote: "Finally, infrastructure that scales with our ambition. Zero downtime since we switched.",
-    author: "Elena Rodriguez",
-    role: "VP Engineering",
-    company: "Beacon AI",
-    metric: "99.99% uptime",
+    quote: "The AI vision score surprised me — it picked up things I never would have noticed myself. Genuinely eye opening.",
+    author: "Marcus B",
+    role: "Student",
+    location: "New York",
   },
   {
-    quote: "The integrations are seamless. We connected our entire stack in a single afternoon.",
-    author: "James Liu",
-    role: "Founder",
-    company: "Prism Analytics",
-    metric: "50+ integrations used",
+    quote: "Brutally honest but that's exactly what I needed. Now I know exactly what to focus on.",
+    author: "Daniel K",
+    role: "Personal Trainer",
+    location: "Toronto",
   },
 ];
 
@@ -65,101 +61,63 @@ export function TestimonialsSection() {
         </div>
 
         {/* Main Quote */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          <div className="lg:col-span-8">
-            <blockquote
-              className={`transition-all duration-300 ${
-                isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-              }`}
-            >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
-                "{activeTestimonial.quote}"
-              </p>
-            </blockquote>
+        <div className="max-w-4xl">
+          <blockquote
+            className={`transition-all duration-300 ${
+              isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+            }`}
+          >
+            <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
+              "{activeTestimonial.quote}"
+            </p>
+          </blockquote>
 
-            {/* Author */}
-            <div
-              className={`mt-12 flex items-center gap-6 transition-all duration-300 delay-100 ${
-                isAnimating ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <div className="w-16 h-16 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center">
-                <span className="font-display text-2xl text-foreground">
-                  {activeTestimonial.author.charAt(0)}
-                </span>
-              </div>
-              <div>
-                <p className="text-lg font-medium text-foreground">{activeTestimonial.author}</p>
-                <p className="text-muted-foreground">
-                  {activeTestimonial.role}, {activeTestimonial.company}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Metric Highlight */}
-          <div className="lg:col-span-4 flex flex-col justify-center">
-            <div
-              className={`p-8 border border-foreground/10 transition-all duration-300 ${
-                isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
-              }`}
-            >
-              <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-4">
-                Key Result
+          {/* Author */}
+          <div
+            className={`mt-12 flex items-center gap-6 transition-all duration-300 delay-100 ${
+              isAnimating ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <div className="w-16 h-16 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center">
+              <span className="font-display text-2xl text-foreground">
+                {activeTestimonial.author.charAt(0)}
               </span>
-              <p className="font-display text-3xl md:text-4xl text-foreground">
-                {activeTestimonial.metric}
+            </div>
+            <div>
+              <p className="text-lg font-medium text-foreground">{activeTestimonial.author}</p>
+              <p className="text-muted-foreground">
+                {activeTestimonial.role}, {activeTestimonial.location}
               </p>
             </div>
+          </div>
 
-            {/* Navigation Dots */}
-            <div className="flex gap-2 mt-8">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setIsAnimating(true);
-                    setTimeout(() => {
-                      setActiveIndex(idx);
-                      setIsAnimating(false);
-                    }, 300);
-                  }}
-                  className={`h-2 transition-all duration-300 ${
-                    idx === activeIndex
-                      ? "w-8 bg-foreground"
-                      : "w-2 bg-foreground/20 hover:bg-foreground/40"
-                  }`}
-                />
-              ))}
-            </div>
+          {/* Navigation Dots */}
+          <div className="flex gap-2 mt-12">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setIsAnimating(true);
+                  setTimeout(() => {
+                    setActiveIndex(idx);
+                    setIsAnimating(false);
+                  }, 300);
+                }}
+                className={`h-2 transition-all duration-300 ${
+                  idx === activeIndex
+                    ? "w-8 bg-foreground"
+                    : "w-2 bg-foreground/20 hover:bg-foreground/40"
+                }`}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Company Logos Marquee Label */}
+        {/* Bottom label */}
         <div className="mt-24 pt-12 border-t border-foreground/10">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-8 text-center">
-            Trusted by forward-thinking teams
+          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase text-center">
+            Trusted by those serious about self-improvement
           </p>
-        </div>
-      </div>
-      
-      {/* Full-width marquee outside container */}
-      <div className="w-full">
-        <div className="flex gap-16 items-center marquee">
-          {[...Array(2)].map((_, setIdx) => (
-            <div key={setIdx} className="flex gap-16 items-center shrink-0">
-              {["Meridian Labs", "Flux Systems", "Beacon AI", "Prism Analytics", "Nova Tech", "Quantum Corp", "Atlas Digital", "Vertex Labs"].map(
-                (company) => (
-                  <span
-                    key={`${setIdx}-${company}`}
-                    className="font-display text-xl md:text-2xl text-foreground/30 whitespace-nowrap hover:text-foreground transition-colors duration-300"
-                  >
-                    {company}
-                  </span>
-                )
-              )}
-            </div>
-          ))}
         </div>
       </div>
     </section>
