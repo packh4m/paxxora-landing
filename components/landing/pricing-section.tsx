@@ -1,60 +1,51 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Lock } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    description: "For individuals and small projects",
+    name: "Free",
+    description: "Try Paxxora with no commitment",
     price: { monthly: 0, annual: 0 },
     features: [
-      "Up to 3 projects",
-      "1GB storage",
-      "Community support",
-      "Basic analytics",
-      "SSL certificates",
+      "One scan",
+      "3 facial metrics revealed",
+      "No overall score",
+      "No AI vision score",
     ],
-    cta: "Start free",
+    locked: [
+      "Full 33 metric breakdown",
+      "Overall harmony score",
+      "AI vision score",
+      "Progress tracking",
+      "Leaderboard access",
+    ],
+    cta: "Start for free",
     popular: false,
   },
   {
-    name: "Pro",
-    description: "For growing teams and businesses",
-    price: { monthly: 29, annual: 24 },
+    name: "Premium",
+    description: "For those serious about self-improvement",
+    price: { monthly: 9.99, annual: 6.67 },
     features: [
-      "Unlimited projects",
-      "100GB storage",
-      "Priority support",
-      "Advanced analytics",
-      "Custom domains",
-      "Team collaboration",
-      "API access",
+      "Unlimited scans",
+      "Full 33 metric breakdown",
+      "Overall harmony score",
+      "AI vision score",
+      "Angularity & dimorphism scores",
+      "Progress tracking over time",
+      "Global & country leaderboard",
+      "Men & women leaderboards",
     ],
-    cta: "Start trial",
+    locked: [],
+    cta: "Get Premium",
     popular: true,
-  },
-  {
-    name: "Enterprise",
-    description: "For large-scale operations",
-    price: { monthly: null, annual: null },
-    features: [
-      "Everything in Pro",
-      "Unlimited storage",
-      "24/7 dedicated support",
-      "Custom integrations",
-      "SLA guarantee",
-      "On-premise option",
-      "Security audit",
-      "Custom contracts",
-    ],
-    cta: "Contact sales",
-    popular: false,
   },
 ];
 
 export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
+  const [isAnnual, setIsAnnual] = useState(false);
 
   return (
     <section id="pricing" className="relative py-32 lg:py-40 border-t border-foreground/10">
@@ -70,17 +61,13 @@ export function PricingSection() {
             <span className="text-stroke">pricing</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Start free and scale as you grow. No hidden fees, no surprises.
+            Start free. Upgrade when you're ready for the full picture.
           </p>
         </div>
 
         {/* Billing Toggle */}
         <div className="flex items-center gap-4 mb-16">
-          <span
-            className={`text-sm transition-colors ${
-              !isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
+          <span className={`text-sm transition-colors ${!isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
             Monthly
           </span>
           <button
@@ -93,22 +80,18 @@ export function PricingSection() {
               }`}
             />
           </button>
-          <span
-            className={`text-sm transition-colors ${
-              isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
+          <span className={`text-sm transition-colors ${isAnnual ? "text-foreground" : "text-muted-foreground"}`}>
             Annual
           </span>
           {isAnnual && (
             <span className="ml-2 px-2 py-1 bg-foreground text-primary-foreground text-xs font-mono">
-              Save 17%
+              Save 33%
             </span>
           )}
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-px bg-foreground/10">
+        <div className="grid md:grid-cols-2 gap-px bg-foreground/10 max-w-4xl mx-auto">
           {plans.map((plan, idx) => (
             <div
               key={plan.name}
@@ -133,15 +116,18 @@ export function PricingSection() {
 
               {/* Price */}
               <div className="mb-8 pb-8 border-b border-foreground/10">
-                {plan.price.monthly !== null ? (
+                {plan.price.monthly === 0 ? (
+                  <span className="font-display text-5xl lg:text-6xl text-foreground">Free</span>
+                ) : (
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-5xl lg:text-6xl text-foreground">
-                      ${isAnnual ? plan.price.annual : plan.price.monthly}
+                      £{isAnnual ? plan.price.annual.toFixed(2) : plan.price.monthly.toFixed(2)}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
-                ) : (
-                  <span className="font-display text-4xl text-foreground">Custom</span>
+                )}
+                {isAnnual && plan.price.monthly !== 0 && (
+                  <p className="text-sm text-muted-foreground mt-2">£79.99 billed annually</p>
                 )}
               </div>
 
@@ -150,6 +136,12 @@ export function PricingSection() {
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-foreground mt-0.5 shrink-0" />
+                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  </li>
+                ))}
+                {plan.locked.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 opacity-40">
+                    <Lock className="w-4 h-4 text-foreground mt-0.5 shrink-0" />
                     <span className="text-sm text-muted-foreground">{feature}</span>
                   </li>
                 ))}
@@ -172,10 +164,7 @@ export function PricingSection() {
 
         {/* Bottom Note */}
         <p className="mt-12 text-center text-sm text-muted-foreground">
-          All plans include automatic updates, HTTPS, and DDoS protection.{" "}
-          <a href="#" className="underline underline-offset-4 hover:text-foreground transition-colors">
-            Compare all features
-          </a>
+          Cancel anytime. No hidden fees, no surprises.
         </p>
       </div>
     </section>
