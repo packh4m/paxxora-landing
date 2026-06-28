@@ -51,7 +51,17 @@ export function FooterSection() {
 
               {/* Social Links */}
               <div className="flex gap-6">
-                {{socialLinks.map((link) => (
+  {socialLinks.map((link) => (
+    
+      key={link.name}
+      href={link.href}
+      className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
+    >
+      {link.name}
+      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+    </a>
+  ))}
+</div>
                   
                     key={link.name}
                     href={link.href}
