@@ -25,7 +25,7 @@ const plans = [
   {
     name: "Premium",
     description: "For those serious about self-improvement",
-    price: { monthly: 9.99, annual: 6.67 },
+    price: { monthly: 12.99, annual: 8.33 },
     features: [
       "Unlimited scans",
       "Full 33 metric breakdown",
@@ -82,7 +82,7 @@ export function PricingSection() {
           </span>
           {isAnnual && (
             <span className="ml-2 px-2 py-1 bg-foreground text-primary-foreground text-xs font-mono">
-              Save 33%
+              Save 36%
             </span>
           )}
         </div>
@@ -118,13 +118,13 @@ export function PricingSection() {
                 ) : (
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-5xl lg:text-6xl text-foreground">
-                      £{isAnnual ? plan.price.annual.toFixed(2) : plan.price.monthly.toFixed(2)}
+                      ${isAnnual ? plan.price.annual.toFixed(2) : plan.price.monthly.toFixed(2)}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                 )}
                 {isAnnual && plan.price.monthly !== 0 && (
-                  <p className="text-sm text-muted-foreground mt-2">£79.99 billed annually</p>
+                  <p className="text-sm text-muted-foreground mt-2">$99.99 billed annually</p>
                 )}
               </div>
 
