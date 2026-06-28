@@ -58,13 +58,13 @@ const metrics = [
     label: "Landmark points measured",
   },
   { 
-    value: Global, 
+    value: "Global", 
     suffix: "ms", 
     prefix: "",
     label: "Leaderboard ranking",
   },
   { 
-    value: Real-time, 
+    value: "Real-time", 
     suffix: "", 
     prefix: "",
     label: "Score updates",
