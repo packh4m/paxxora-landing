@@ -53,13 +53,13 @@ const metrics = [
   },
   { 
     value: 52, 
-    suffix: ".99%", 
+    suffix: "", 
     prefix: "",
     label: "Landmark points measured",
   },
   { 
     value: "Global", 
-    suffix: "ms", 
+    suffix: "", 
     prefix: "",
     label: "Leaderboard ranking",
   },
