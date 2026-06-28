@@ -46,7 +46,7 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 32, 
+    value: 33, 
     suffix: "", 
     prefix: "",
     label: "Metrics tracked per scan",
@@ -59,28 +59,17 @@ const metrics = [
   },
   { 
     value: "Global", 
-    suffix: "", 
-    prefix: "",
     label: "Leaderboard ranking",
   },
   { 
     value: "Real-time", 
-    suffix: "", 
-    prefix: "",
     label: "Score updates",
   },
 ];
 
 export function MetricsSection() {
-  const [time, setTime] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    setTime(new Date().toLocaleTimeString());
-    const interval = setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -114,14 +103,6 @@ export function MetricsSection() {
               So can your rank.
             </h2>
           </div>
-          <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Track your progress
-            </span>
-            <span className="text-foreground/30">|</span>
-            <span>{time ?? "--:--:--"}</span>
-          </div>
         </div>
         
         {/* Metrics Grid */}
@@ -134,11 +115,17 @@ export function MetricsSection() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <AnimatedCounter 
-                end={typeof metric.value === 'number' ? metric.value : 0} 
-                suffix={metric.suffix} 
-                prefix={metric.prefix}
-              />
+              {typeof metric.value === 'number' ? (
+                <AnimatedCounter 
+                  end={metric.value}
+                  suffix={"suffix" in metric ? metric.suffix : ""}
+                  prefix={"prefix" in metric ? metric.prefix : ""}
+                />
+              ) : (
+                <div className="text-6xl lg:text-8xl font-display tracking-tight">
+                  {metric.value}
+                </div>
+              )}
               <div className="mt-4 text-lg text-muted-foreground">{metric.label}</div>
             </div>
           ))}
